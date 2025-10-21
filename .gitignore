@@ -1,0 +1,18 @@
+# Ignora arquivos do Java/Maven
+/target/
+*.jar
+*.war
+*.ear
+
+# Ignora logs
+*.log
+
+# Ignora arquivos de IDE
+.idea/
+.vscode/
+*.iml
+*.class
+
+# Ignora arquivos do sistema
+.DS_Store
+Thumbs.db
