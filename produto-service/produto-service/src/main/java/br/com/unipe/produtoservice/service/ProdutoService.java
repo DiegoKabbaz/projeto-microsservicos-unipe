@@ -18,6 +18,10 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
+    public List<Produto> findByIds(List<Long> ids) {
+        return produtoRepository.findAllById(ids);
+    }
+
     public Optional<Produto> findById(Long id) {
         return produtoRepository.findById(id);
     }
@@ -34,7 +38,7 @@ public class ProdutoService {
         return produtoRepository.findById(id)
                 .map(produto -> {
                     produto.setNome(produtoDetails.getNome());
-                    produto.setQuantidade(produtoDetails.getQuantidade());
+                    produto.setQuantidadeDisponivel(produtoDetails.getQuantidadeDisponivel());
                     produto.setDescricao(produtoDetails.getDescricao());
                     produto.setPreco(produtoDetails.getPreco());
                     return produtoRepository.save(produto);

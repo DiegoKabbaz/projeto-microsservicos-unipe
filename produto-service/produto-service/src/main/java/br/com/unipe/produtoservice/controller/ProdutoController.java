@@ -27,6 +27,11 @@ public class ProdutoController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/consultarPorIds")
+    public List<Produto> consultarProdutosPorIds(@RequestParam List<Long> ids) {
+        return produtoService.findByIds(ids);
+    }
+
     @PostMapping
     public Produto createProduto(@RequestBody Produto produto) {
         return produtoService.save(produto);

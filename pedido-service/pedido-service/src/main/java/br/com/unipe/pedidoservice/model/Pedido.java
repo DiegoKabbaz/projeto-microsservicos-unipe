@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -23,6 +24,11 @@ public class Pedido {
     @Enumerated(EnumType.STRING)
     private StatusPedido status = StatusPedido.CRIADO;
 
-    @ElementCollection 
+        @ElementCollection
+    @CollectionTable(name="pedido_produtos", joinColumns = @JoinColumn(name
+            = "pedido_id"))
+    @Column(name = "produto_id")
     private List<Long> idProdutos;
+
+    private BigDecimal valorTotal;
 }
